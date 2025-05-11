@@ -1,0 +1,11 @@
+name: MyBoast
+main: RoMo\MyBoast\MyBoast
+author: RoMo_Official
+version: 1.0.0
+api:
+  - 5.0.0
+
+permissions:
+  myboast.boast.permission:
+    description: 자랑 명령어
+    default: true
