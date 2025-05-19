@@ -1,11 +1,20 @@
 name: MyBoast
 main: RoMo\MyBoast\MyBoast
 author: RoMo_Official
-version: 1.0.0
+version: 1.0.1
 api:
   - 5.0.0
+
+depend:
+  - CooltimeCore
+
+softdepend:
+  - KorItemName
 
 permissions:
   myboast.boast.permission:
     description: 자랑 명령어
     default: true
+
+virions:
+  - presentkim-pm/await-command/1.2.2
