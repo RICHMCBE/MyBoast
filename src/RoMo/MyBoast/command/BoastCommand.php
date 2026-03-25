@@ -8,8 +8,8 @@ use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\Server;
-use cherrychip\iteminfochatapi\ItemInfoChatAPI;
-use cherrychip\iteminfochatapi\MessageFormatType;
+use cherrychip\chathookapi\ChatHookAPI;
+use cherrychip\chathookapi\ItemHookFormat;
 use Generator;
 use kim\present\awaitcommand\AwaitPluginCommand;
 use naeng\CooltimeCore\CooltimeCore;
@@ -51,17 +51,17 @@ class BoastCommand extends AwaitPluginCommand{
             return;
         }
 
-        $itemName = ItemInfoChatAPI::resolveItemName($item);
+        $itemName = ChatHookAPI::resolveItemName($item);
         $itemCount = $item->getCount();
 
-        $itemProcessingText = ItemInfoChatAPI::buildItemProcessingText($item, $itemName);
+        $itemProcessingText = ChatHookAPI::buildItemText($item, $itemName);
         $chatPrefix = '§l§6 ! §r§f';
         $adverb = "{$chatPrefix}{$sender->getName()}님이";
         $itemTitle = "{$itemName} {$itemCount}개";
         $ending = '를 자랑하고 있습니다!';
         $description = $itemProcessingText;
 
-        $encodedMessage = ItemInfoChatAPI::formatMessage(MessageFormatType::RESOURCE_PACK, $adverb, $itemTitle, $ending, $item, $description);
+        $encodedMessage = ChatHookAPI::formatItemMessage(ItemHookFormat::ENCODED, $adverb, $itemTitle, $ending, $item, $description);
         Server::getInstance()->broadcastMessage($encodedMessage);
     }
 }
