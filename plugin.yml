@@ -1,13 +1,13 @@
 name: MyBoast
 main: RoMo\MyBoast\MyBoast
 author: RoMo_Official
-version: 1.0.3
+version: 1.0.4
 api:
   - 5.0.0
 
 depend:
   - CooltimeCore
-  - ItemInfoChatAPI
+  - ChatHookAPI
 
 softdepend:
   - KorItemName
